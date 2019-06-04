@@ -207,6 +207,12 @@
                 realHeight = lineHeight;
                 originDiff = 0;
             }
+            
+            //fix center alignment
+            if(size.width > s.width && substringRange.location == 0) {
+                lineOrigins[i].x = lineOrigins[i].x + (size.width - s.width)/2;
+            }
+            
             textBlock.charRect = CGRectMake(startOffset + lineOrigins[i].x, startOffsetY + originDiff, endOffset - startOffset, realHeight);
             [textAttributes addObject:textBlock];
             
